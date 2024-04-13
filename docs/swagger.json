@@ -1,0 +1,34 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This API manages the notifications of the forecast model",
+        "title": "Notification API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "paths": {
+        "/healthcheck": {
+            "get": {
+                "description": "get the status of the server.",
+                "consumes": [
+                    "*/*"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Health"
+                ],
+                "summary": "Show the status of the server.",
+                "responses": {
+                    "200": {
+                        "description": "Server is up and running",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
