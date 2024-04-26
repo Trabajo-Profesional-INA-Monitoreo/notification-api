@@ -14,5 +14,5 @@ func SetUpEndpoints(server *gin.Engine, apiConfig *config.ApiConfig) {
 	api := server.Group("/api/v1")
 
 	setUpHealthCheck(api)
-	SetNotificationEndpoints(api)
+	SetNotificationEndpoints(api, apiConfig)
 }

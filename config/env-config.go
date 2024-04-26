@@ -7,9 +7,11 @@ import (
 )
 
 type ApiConfig struct {
-	LogLevel   string
-	ServerPort string
-	DbUrl      string
+	LogLevel      string
+	ServerPort    string
+	DbUrl         string
+	TokenTelegram string
+	ChatId        int64
 }
 
 // initEnv Initializes the configuration properties from a config file and environment
@@ -28,6 +30,8 @@ func initEnv() (*viper.Viper, error) {
 	_ = v.BindEnv("log", "level")
 	_ = v.BindEnv("server", "port")
 	_ = v.BindEnv("datasource", "connection")
+	_ = v.BindEnv("telegram", "token")
+	_ = v.BindEnv("telegram", "chatId")
 
 	// Try to read configuration from config file. If config file
 	// does not exist then ReadInConfig will fail but configuration
@@ -50,10 +54,14 @@ func GetConfig() *ApiConfig {
 	logLevel := getEnvString(env, "log.level")
 	serverPort := getEnvString(env, "server.port")
 	dbConnection := getEnvString(env, "datasource.connection")
+	tokenTelegram := getEnvString(env, "telegram.token")
+	chatId := getEnvInt(env, "telegram.chatId")
 
 	return &ApiConfig{
-		LogLevel:   logLevel,
-		ServerPort: serverPort,
-		DbUrl:      dbConnection,
+		LogLevel:      logLevel,
+		ServerPort:    serverPort,
+		DbUrl:         dbConnection,
+		TokenTelegram: tokenTelegram,
+		ChatId:        chatId,
 	}
 }

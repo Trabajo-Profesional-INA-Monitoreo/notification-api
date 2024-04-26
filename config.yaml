@@ -1,0 +1,12 @@
+log:
+  level: "info"
+
+server:
+  port: "8081"
+
+datasource:
+  connection: "host=localhost user=postgres password=hola dbname=postgres port=5431 sslmode=disable"
+
+telegram:
+  token: ""
+  chatId: ""
