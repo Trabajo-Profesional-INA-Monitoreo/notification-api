@@ -1,0 +1,10 @@
+version: '3.9'
+name: ina-notifications-api
+services:
+  keycloak:
+    container_name: notifications-api
+    image: notifications-api:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config.yaml:/config.yaml
