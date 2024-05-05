@@ -1,7 +1,7 @@
 version: '3.9'
 name: ina-notifications-api
 services:
-  keycloak:
+  notifications-api:
     container_name: notifications-api
     image: notifications-api:latest
     ports:
