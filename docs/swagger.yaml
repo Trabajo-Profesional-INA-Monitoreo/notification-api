@@ -8,7 +8,7 @@ definitions:
     type: object
   dto.Notification:
     properties:
-      message:
+      Message:
         type: string
     type: object
 info:
