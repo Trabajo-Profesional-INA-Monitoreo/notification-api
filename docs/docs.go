@@ -87,7 +87,7 @@ const docTemplate = `{
         "dto.Notification": {
             "type": "object",
             "properties": {
-                "message": {
+                "Message": {
                     "type": "string"
                 }
             }

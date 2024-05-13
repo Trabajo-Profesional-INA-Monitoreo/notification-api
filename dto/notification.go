@@ -1,5 +1,5 @@
 package dto
 
 type Notification struct {
-	Message string
+	Message string `json:"Message"`
 }
