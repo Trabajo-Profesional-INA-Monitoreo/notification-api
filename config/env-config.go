@@ -29,7 +29,6 @@ func initEnv() (*viper.Viper, error) {
 	// Add env variables supported
 	_ = v.BindEnv("log", "level")
 	_ = v.BindEnv("server", "port")
-	_ = v.BindEnv("datasource", "connection")
 	_ = v.BindEnv("telegram", "token")
 	_ = v.BindEnv("telegram", "chatId")
 
@@ -53,14 +52,12 @@ func GetConfig() *ApiConfig {
 
 	logLevel := getEnvString(env, "log.level")
 	serverPort := getEnvString(env, "server.port")
-	dbConnection := getEnvString(env, "datasource.connection")
 	tokenTelegram := getEnvString(env, "telegram.token")
 	chatId := getEnvInt(env, "telegram.chatId")
 
 	return &ApiConfig{
 		LogLevel:      logLevel,
 		ServerPort:    serverPort,
-		DbUrl:         dbConnection,
 		TokenTelegram: tokenTelegram,
 		ChatId:        chatId,
 	}
