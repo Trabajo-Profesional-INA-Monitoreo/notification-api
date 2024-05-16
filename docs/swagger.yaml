@@ -1,3 +1,16 @@
+definitions:
+  dto.ErrorResponse:
+    properties:
+      message:
+        type: string
+      timestamp:
+        type: string
+    type: object
+  dto.Notification:
+    properties:
+      Message:
+        type: string
+    type: object
 info:
   contact: {}
   description: This API manages the notifications of the forecast model
@@ -19,4 +32,25 @@ paths:
       summary: Show the status of the server.
       tags:
       - Health
+  /notificacion:
+    post:
+      parameters:
+      - description: Notification
+        in: body
+        name: notification
+        required: true
+        schema:
+          $ref: '#/definitions/dto.Notification'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
+      summary: Endpoint para crear una notificacion
+      tags:
+      - Notificacion
 swagger: "2.0"

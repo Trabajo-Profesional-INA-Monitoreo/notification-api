@@ -1,0 +1,9 @@
+log:
+  level: "info"
+
+server:
+  port: "8081"
+
+telegram:
+  token: ""
+  chatId: ""

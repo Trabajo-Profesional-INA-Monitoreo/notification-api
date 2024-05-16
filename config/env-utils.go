@@ -5,8 +5,8 @@ import (
 	"github.com/spf13/viper"
 )
 
-func getEnvFloat(env *viper.Viper, key string) float64 {
-	value := env.GetFloat64(key)
+func getEnvInt(env *viper.Viper, key string) int64 {
+	value := env.GetInt64(key)
 	if value == 0 {
 		log.Fatalf("Missing value in configuration: %v", key)
 	}
