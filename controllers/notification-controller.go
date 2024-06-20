@@ -4,6 +4,7 @@ import (
 	"github.com/Trabajo-Profesional-INA-Monitoreo/notification-api/dto"
 	"github.com/Trabajo-Profesional-INA-Monitoreo/notification-api/services"
 	"github.com/gin-gonic/gin"
+	"github.com/google/martian/log"
 	"net/http"
 )
 
@@ -36,6 +37,7 @@ func (n notificationController) CreateNotification(ctx *gin.Context) {
 	err := n.notificationService.CreateNotification(notification)
 
 	if err != nil {
+		log.Errorf("Error sending notif: ", err.Error())
 		ctx.JSON(http.StatusInternalServerError, dto.NewErrorResponse(err))
 		return
 	}
